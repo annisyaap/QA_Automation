@@ -1,0 +1,64 @@
+import java.util.Scanner;
+import java.util.*;
+
+public class Main{
+  public static void main(String[] args){
+
+    int choice = 0;
+    ArrayList<String> listGist = new ArrayList<String>();
+    Scanner scan = new Scanner(System.in);
+    do {
+        System.out.print("===== W E L C O M E =====\nWhat do you want to do?\n1. Create\n2. Edit\n3. Delete\n4. View\nEnter the number you want to do = ");
+        if(scan.hasNextInt() )
+            choice = scan.nextInt();
+        else 
+            choice = 0;
+
+    if (choice == 1){
+    	System.out.println("\n\n===== CREATE GIST =====\nPlease enter the message below here :");
+    	String mssgGist = scan.next();
+    	mssgGist = scan.nextLine();
+      	listGist.add(mssgGist);
+        System.out.println("\n!! Data has been saved.\n");
+    }
+    
+    else if (choice == 3){
+        System.out.println("\n\n===== DELETE GIST =====\n\nGist List ;");
+      if (listGist.size()!=0){
+    	for (int a = 0; a<listGist.size(); a++){
+            System.out.println((a+1)+". "+listGist.get(a));}
+        
+        System.out.println("Please enter the number of message that will be delete :");
+        int deleteGist = scan.nextInt();
+        listGist.remove(deleteGist-1);
+        System.out.println("\n!! Data has been deleted.\n");
+      }
+      else {
+        System.out.println("There's no data.");  
+      }
+    }
+    
+    else if (choice == 2){
+        System.out.println("\n\n===== EDIT GIST =====\n\nGist List ;");
+    	int a = 0;
+    	for (a = 0; a<listGist.size(); a++){
+            System.out.println((a+1)+". "+listGist.get(a));}
+        
+        System.out.println("Please enter the number of message that will be edit :");
+        int editGist = scan.nextInt();
+    	System.out.println("Please enter the message below here :");
+    	String newMssgGist = scan.next();
+    	newMssgGist = scan.nextLine();
+        listGist.set(editGist-1, newMssgGist);
+        System.out.println("\n!! Data has been edited.\n");
+    }
+    
+    else if (choice == 4){
+        System.out.println("\n\n===== VIEW GIST =====\n\nGist List ;");
+    	for (int a = 0; a<listGist.size(); a++){
+            System.out.println((a+1)+". "+listGist.get(a));}
+        System.out.println();
+    }    
+    } while (0 < 6);
+  }  
+}
